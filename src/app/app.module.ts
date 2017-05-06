@@ -15,6 +15,8 @@ import { DeterminationErrorService } from './general/determination_errors/determ
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './tree/main/main.component';
+import { MainComponent } from './matches/main/main.component';
+import { MatchesGridComponent } from './matches/matches-grid/matches-grid.component';
 
 
 
@@ -33,6 +35,8 @@ import { MainComponent } from './tree/main/main.component';
         MainComponent,
         HttpPopupErrors,
         DeterminationErrors,
+        MainComponent,
+        MatchesGridComponent,
     ],
     providers: [
         DeterminationErrorService,

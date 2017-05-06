@@ -40,30 +40,6 @@ export class DeterminationErrorService {
         this.error.message = '';
     }
 
-    private incorrectKey() {
-
-        if (this.error.message == '' && this.error.body.status_code == 1) {
-            this.error.message = 'Некорректный составной ключ';
-        }
-
-    }
-
-    private incorrectAdminEmail() {
-
-        if (this.error.message == '' && this.error.body.status_code == 2) {
-            this.error.message = 'Некорректный e-mail';
-        }
-
-    }
-
-    private  incorrectAdminPassword() {
-
-        if (this.error.message == '' && this.error.body.status_code == 3) {
-            this.error.message = 'Некорректный пароль';
-        }
-
-    }
-
 
     /**
      * method invalidate  http status
@@ -91,9 +67,6 @@ export class DeterminationErrorService {
      */
     private parse() {
         if (this.error.body) {
-            //this.incorrectKey();
-            this.incorrectAdminEmail();
-            this.incorrectAdminPassword();
             this.invalidHttp400();
             this.invalid();
         }

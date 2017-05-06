@@ -1,17 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Http,  Headers, URLSearchParams, RequestOptions } from '@angular/http';
-import { User } from '../user/user.model';
-import { IUserModel } from '../user/user_model_interface';
+import {Observable} from 'rxjs/Rx';
 
 @Injectable()
 
 export class HttpService  {
-    protected userInfo:IUserModel;
 
-    constructor(public http: Http, public user: User) {
-        this.userInfo = this.user.getInfo();
-
-    }
+    constructor(protected http: Http) {}
 
     /**
      * method http get
@@ -19,29 +14,10 @@ export class HttpService  {
      * @param params
      * @returns {Http}
      */
-    fetch(url, params, addData) {
+    fetch(url, params) {
         let headers = new Headers();
 
         headers.append('Content-Type', 'application/json');
-
-
-        headers.append('User-Id',  this.userInfo.id);
-        headers.append('Token',  this.userInfo.accessToken);
-
-        if(addData.accessType) {
-            headers.append('Access-Type', '1');
-        }
-
-        if(addData.limit) {
-
-         headers.append('Offset-Step',  addData.limit);
-        }
-
-        if(addData.page || addData.page === 0) {
-            let count = (parseInt(addData.page )- 1) * parseInt(addData.limit);
-            headers.append('Count',  count.toString());
-        }
-
 
         let options = new RequestOptions(
             {
@@ -94,9 +70,6 @@ export class HttpService  {
 
         headers.append('Content-Type', 'application/json');
 
-        headers.append('User-Id',  this.userInfo.id);
-        headers.append('Token',  this.userInfo.accessToken);
-
         return this.http
             .put(url, body, {headers:headers})
             .map(res => res.json())
@@ -120,9 +93,6 @@ export class HttpService  {
         let headers = new Headers();
 
         headers.append('Content-Type', 'application/json');
-
-        headers.append('User-Id',  this.userInfo.id);
-        headers.append('Token',  this.userInfo.accessToken);
 
         return this.http.delete(url, {headers:headers})
             .map(res => res.json())

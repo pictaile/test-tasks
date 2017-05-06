@@ -1,0 +1,16 @@
+<div class="popup-wrapper confirm" *ngIf="notice.state == 'error' || notice.state == 'notice'" #confirm >
+    <div class="popup-confirm"  #pc>
+        <div class="popup-header-block">
+            <p class="head-text" style="color:red" *ngIf="notice.state == 'error'">{{'Ошибка сервера' }}</p>
+            <p class="head-text" *ngIf="notice.state != 'error'">{{ 'Предупреждение' }}</p>
+            <div class="top-close-popup" (click)="success()">×</div>
+        </div>
+        <div class="popup-body-block">
+            <p>{{notice.message }}</p>
+        </div>
+        <div class="popup-navigate-block" style="text-align: center">
+            <button class="btn-yellow" (click)="success()" style="float: none">{{ 'Ок' }}</button>
+        </div>
+    </div>
+
+</div>

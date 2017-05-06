@@ -1,0 +1,16 @@
+<div class="select-box-wrapper filter-input" [ngClass]="show == true ? 'active':''" *ngIf="!disabled">
+    <div class="filter-selected"  (click)="show = !show">
+        <span class="selected-item">{{ selected.text  }}</span>
+        <div class="select-pointer"></div>
+    </div>
+    <ul class="list select-list" >
+        <li *ngFor="let item of data" (click)="change(item)" [ngClass]="selected.id === item.id ? 'active':''">{{  item.text }}</li>
+    </ul>
+</div>
+
+<div class="select-box-wrapper filter-input disabled"  *ngIf="disabled">
+    <div class="filter-selected">
+        <span class="selected-item">{{ selected.text }}</span>
+        <div class="select-pointer"></div>
+    </div>
+</div>

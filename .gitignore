@@ -1,1 +1,4 @@
-./.idea
+.idea/*
+node_modules
+default
+Front-end Developer Assignment

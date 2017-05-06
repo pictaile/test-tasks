@@ -15,8 +15,11 @@ import { DeterminationErrorService } from './general/determination_errors/determ
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './tree/main/main.component';
-import { MainComponent } from './matches/main/main.component';
+
 import { MatchesGridComponent } from './matches/matches-grid/matches-grid.component';
+import { TreeItemComponent } from './tree/main/tree-item/tree-item.component';
+import { SortPriorityPipe } from './tree/main/pipe/sort-priority.pipe';
+import { SortCountryPipe } from './tree/main/pipe/sort-country.pipe';
 
 
 
@@ -35,8 +38,10 @@ import { MatchesGridComponent } from './matches/matches-grid/matches-grid.compon
         MainComponent,
         HttpPopupErrors,
         DeterminationErrors,
-        MainComponent,
         MatchesGridComponent,
+        TreeItemComponent,
+        SortPriorityPipe,
+        SortCountryPipe,
     ],
     providers: [
         DeterminationErrorService,

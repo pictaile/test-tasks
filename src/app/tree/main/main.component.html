@@ -1,3 +1,13 @@
-<p>
-  main works!
-</p>
+<div class="container">
+
+    <ul class="sports-list">
+        <li *ngFor="let item of tree | sortPriority">
+            <app-tree-item [setData]="item" (onSelected)="selectedItem($event)"></app-tree-item>
+
+        </li>
+
+    </ul>
+
+</div>
+
+<notice [setError]="error"></notice>

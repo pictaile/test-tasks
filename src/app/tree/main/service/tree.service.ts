@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http,  Headers, URLSearchParams, RequestOptions } from '@angular/http';
 import {HttpService} from '../../../general/http_service/http.service';
 
-
-import {Observable} from 'rxjs/Rx';
-
+import 'rxjs/Rx';
 
 @Injectable()
 export class TreeService extends HttpService {
@@ -17,6 +15,15 @@ export class TreeService extends HttpService {
 
   public getTree() {
 
+    let params = new URLSearchParams();
+
+    return this.fetch('/app/tree/main/service/json/tree.json', params);
   }
 
+
+  public getLayout() {
+    let params = new URLSearchParams();
+
+    return this.fetch('/app/tree/main/service/json/layout.json', params);
+  }
 }

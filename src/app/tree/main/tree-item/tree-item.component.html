@@ -1,0 +1,26 @@
+<div class="tree-block">
+  <div class="sport-item" (click)="oCountry = !oCountry">
+    <span>{{ sport.name }}</span>
+    <span>{{ sport.total }}</span>
+  </div>
+
+  <ul class="country-list" *ngIf="oCountry">
+    <li *ngFor="let country of sport.countries | sortCountry">
+      <div class="country-item" (click)="toggleLeague(country)">
+        <span>{{ country.name }}</span>
+        <span>{{ country.total }}</span>
+      </div>
+
+      <ul class="leagues-list" *ngIf="country.open">
+        <li *ngFor="let league of country.leagues">
+          <div class="league-item" (click)="selected()">
+            <span>{{ league.name }}</span>
+            <span>{{ league.total }}</span>
+          </div>
+        </li>
+      </ul>
+
+    </li>
+  </ul>
+
+</div>

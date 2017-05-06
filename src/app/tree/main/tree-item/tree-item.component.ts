@@ -20,8 +20,8 @@ export class TreeItemComponent {
     country.open = !country.open;
   }
 
-  selected() {
-    this.onSelected.emit(true);
+  selected(league) {
+    this.onSelected.emit(league);
   }
 
 }

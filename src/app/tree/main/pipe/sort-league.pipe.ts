@@ -1,16 +1,16 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'sortPriority'
+  name: 'sortLeague'
 })
-export class SortPriorityPipe implements PipeTransform {
+export class SortLeaguePipe implements PipeTransform {
 
   transform(items: any[], args: any): any {
     if (!items || items.length == 1) {
       return items;
     }
 
-    return items.sort( (a, b) => a.priority - b.priority);
+    return items.sort();
   }
 
 }

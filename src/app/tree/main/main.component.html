@@ -8,6 +8,49 @@
 
     </ul>
 
+    <div class="table-wrapper" >
+       <table cellpadding="0" border="0" cellspacing="0">
+           <tr>
+               <th>Date</th>
+               <th>Pairs</th>
+               <th class="red">1</th>
+               <th class="red">X</th>
+               <th class="red">2</th>
+
+               <th class="red">1X</th>
+               <th class="red">12</th>
+               <th class="red">X2</th>
+
+               <th class="red">(0)1</th>
+               <th class="red">(0)2</th>
+
+               <th class="red">No</th>
+               <th class="red">Yes</th>
+               <th class="red">No</th>
+
+               <th class="red">Under</th>
+               <th class="red">Over</th>
+           </tr>
+           <tr *ngFor="let match of matches">
+               <td>{{ match.sd | date:"d.M.y" }}</td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+           </tr>
+       </table>
+    </div>
+
 </div>
 
 <notice [setError]="error"></notice>

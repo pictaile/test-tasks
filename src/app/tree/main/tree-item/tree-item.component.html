@@ -12,8 +12,8 @@
       </div>
 
       <ul class="leagues-list" *ngIf="country.open">
-        <li *ngFor="let league of country.leagues">
-          <div class="league-item" (click)="selected()">
+        <li *ngFor="let league of country.leagues | sortLeague">
+          <div class="league-item" (click)="selected(league)">
             <span>{{ league.name }}</span>
             <span>{{ league.total }}</span>
           </div>

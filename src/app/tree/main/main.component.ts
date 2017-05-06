@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TreeService} from "./service/tree.service";
-
+import * as moment from "moment";
 
 @Component({
   selector: 'app-main',
@@ -12,7 +12,9 @@ export class MainComponent implements OnInit {
 
   protected tree:any = null;
   protected layout:any = null;
+  protected matches:any = null;
   protected error:any = null;
+  protected selectedLeague:any = null;
 
   constructor(private treeService:TreeService) { }
 
@@ -45,8 +47,20 @@ export class MainComponent implements OnInit {
   }
 
 
-  selectedItem(data) {
-
+  getGrid(id) {
+    var self = this;
+    this.treeService.getMatches(id).subscribe(
+        res =>self.converterRes(res),
+        err =>  self.error =  typeof err == 'object' ? err : JSON.parse(err || '{}'));
   }
 
+  selectedItem(data) {
+    this.getGrid(data.id);
+  }
+
+
+  converterRes(res){
+    debugger;
+    this.matches = res.data
+  }
 }

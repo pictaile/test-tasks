@@ -6,12 +6,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SortCountryPipe implements PipeTransform {
 
   transform(items: any[], args: any): any {
-    debugger;
-    if (!items) {
+    if (!items || items.length == 1) {
       return items;
     }
 
-    return items.sort( (a, b) => a.priority - b.priority);
+    return items.sort();
   }
 
 }

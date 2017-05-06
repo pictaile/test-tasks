@@ -26,4 +26,12 @@ export class TreeService extends HttpService {
 
     return this.fetch('/app/tree/main/service/json/layout.json', params);
   }
+
+  public getMatches(id) {
+    let params = new URLSearchParams();
+
+    params.set('id',id);
+
+    return this.fetch('/app/tree/main/service/json/matches.json', params);
+  }
 }

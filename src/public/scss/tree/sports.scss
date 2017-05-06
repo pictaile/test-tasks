@@ -1,3 +1,25 @@
+
+
+.table-wrapper {
+  flex: 1 1 300px;
+  box-sizing: border-box;
+  padding:0 20px;
+  table {
+    width: 100%;
+    margin: auto;
+    th {
+      padding:10px;
+      border-bottom: 1px solid #000;
+      &.red {
+        color: #8c3a07;
+      }
+    }
+    td {
+      padding: 10px;
+    }
+  }
+}
+
 .sports-list {
   width:300px;
   background: #283338;
@@ -8,6 +30,8 @@
   color:#fff;
   font-size: 12px;
 
+  flex-shrink: 1;
+  flex-basis: 300px;
 }
 
 .tree-block {

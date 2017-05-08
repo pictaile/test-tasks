@@ -24,7 +24,7 @@
                <th class="red">(0)1</th>
                <th class="red">(0)2</th>
 
-               <th class="red">No</th>
+
                <th class="red">Yes</th>
                <th class="red">No</th>
 
@@ -33,20 +33,24 @@
            </tr>
            <tr *ngFor="let match of matches">
                <td>{{ match.sd | date:"d.M.y" }}</td>
-               <td></td>
-               <td></td>
-               <td></td>
-               <td></td>
-               <td></td>
-               <td></td>
-               <td></td>
-               <td></td>
-               <td></td>
-               <td></td>
-               <td></td>
-               <td></td>
-               <td></td>
-               <td></td>
+               <td>{{ match.h }} - {{ match.a }}</td>
+
+               <td>{{ match.data | empty: "1" }}</td>
+               <td>{{ match.data | empty: "X" }}</td>
+               <td>{{ match.data | empty: "2" }}</td>
+
+               <td>{{ match.data | empty: "1X" }}</td>
+               <td> {{ match.data | empty: "12" }}</td>
+               <td>{{ match.data | empty: "X2" }}</td>
+
+               <td>{{ match.data | empty: "01" }}</td>
+               <td>{{ match.data | empty: "02" }}</td>
+
+               <td>{{ match.data.Yes.value }}</td>
+               <td>{{ match.data.No.value }}</td>
+
+               <td>{{ match.data | empty: "Under" }}</td>
+               <td>{{ match.data | empty: "Over" }}</td>
            </tr>
        </table>
     </div>

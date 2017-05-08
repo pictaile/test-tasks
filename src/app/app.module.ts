@@ -21,6 +21,7 @@ import { TreeItemComponent } from './tree/main/tree-item/tree-item.component';
 import { SortPriorityPipe } from './tree/main/pipe/sort-priority.pipe';
 import { SortCountryPipe } from './tree/main/pipe/sort-country.pipe';
 import { SortLeaguePipe } from './tree/main/pipe/sort-league.pipe';
+import { EmptyPipe } from './tree/main/pipe/empty.pipe';
 
 
 
@@ -44,6 +45,8 @@ import { SortLeaguePipe } from './tree/main/pipe/sort-league.pipe';
         SortPriorityPipe,
         SortCountryPipe,
         SortLeaguePipe,
+        EmptyPipe,
+
     ],
     providers: [
         DeterminationErrorService,

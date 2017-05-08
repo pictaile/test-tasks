@@ -15,21 +15,14 @@ export class MainComponent implements OnInit {
   protected matches:any = null;
   protected error:any = null;
   protected selectedLeague:any = null;
+  showData:any;
+
 
   constructor(private treeService:TreeService) { }
 
   ngOnInit() {
-    this.getData();
-  }
-
-
-  getData() {
-    if(!this.tree) {
-      this.geTree();
-    }
-    if(!this.layout) {
-      this.getOddsLayout();
-    }
+    this.geTree();
+    this.getOddsLayout();
   }
 
   geTree() {
@@ -42,7 +35,7 @@ export class MainComponent implements OnInit {
   getOddsLayout () {
     var self = this;
       this.treeService.getLayout().subscribe(
-          res =>self.layout = res,
+          res =>self.layout = res.data,
           err =>  self.error =  typeof err == 'object' ? err : JSON.parse(err || '{}'));
   }
 
@@ -60,7 +53,37 @@ export class MainComponent implements OnInit {
 
 
   converterRes(res){
-    debugger;
-    this.matches = res.data
+    this.matches = res.data;
+
+    for(var i in this.matches) {
+      this.matches[i].data = this.generateDataByMatch(this.matches[i]);
+    }
+  }
+
+  private generateDataByMatch(match){
+    var data = {};
+      for(var j in this.layout) {
+        if(match.odds[this.layout[j].index]) {
+          if(this.layout[j].index == 'drawNoBet') {
+            data['01'] = match.odds[this.layout[j].index][0];
+            data['02'] = match.odds[this.layout[j].index][1];
+          } else {
+            data  =  Object.assign(this.getKeyInArray(this.layout[j].odds, match.odds[this.layout[j].index]), data);
+          }
+
+        }
+
+      }
+    return data;
+  };
+
+  getKeyInArray(source, arr) {
+    var result = {};
+    for(var i in source) {
+      result[source[i].name] = arr.find(function (item) {
+        return item.name.toLowerCase() == source[i].name.toLowerCase()
+      });
+    }
+    return result;
   }
 }
